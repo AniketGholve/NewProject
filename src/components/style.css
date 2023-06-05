@@ -1,0 +1,18 @@
+nav{
+    background-color: #3b953b;
+}
+.navbar-brand{
+    color: white;
+    border: 3px solid transparent ;
+}
+.nav-link{
+    color: white;
+    margin: 0px 3px;
+    border-radius:10px ;
+}
+.nav-link:hover{
+    border-bottom: 3px solid black;
+}
+a.active_class{
+    color: aqua;
+}

@@ -1,62 +1,64 @@
 import React, { useEffect, useState } from 'react'
-import ReactDom from 'react-dom/client'
+import { NavLink } from 'react-router-dom';
+import './style.css'
 function Header() {
     let [userRole, setUserRole] = useState("");
-    sessionStorage.setItem("userRole", "ALP")
+    
     useEffect(() => {
         setUserRole(sessionStorage.getItem("userRole"))
-    }, [userRole])
+    },[])
+    
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#!">Inventory Management System</a>
+                    <NavLink activeClassName="active_class" className="navbar-brand" to="#!">Inventory Management System</NavLink>
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             {
                                 userRole === "" && <>
                                     <li className="nav-item" >
-                                        <a className="nav-link" href="#!">Login</a>
+                                        <NavLink className="nav-link" href="#!">Login</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#!register">Register</a>
+                                        <NavLink className="nav-link" href="#!register">Register</NavLink>
                                     </li>
                                 </>
                             }
                             {
                                 userRole === "CLP" && <>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#!/clp_users">Home</a>
+                                        <NavLink className="nav-link" href="#!/clp_users">Home</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#!/patient">Patients</a>
+                                        <NavLink className="nav-link" href="#!/patient">Patients</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#!inventory">Inventory</a>
+                                        <NavLink className="nav-link" href="#!inventory">Inventory</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#!/administrator">Administrator</a>
+                                        <NavLink className="nav-link" href="#!/administrator">Administrator</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="#!/reports">Reports</a>
+                                        <NavLink className="nav-link" href="#!/reports">Reports</NavLink>
                                     </li>
                                 </>
                             }
                             {userRole === "ALP" && <>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#!clinics">Clinics</a>
+                                    <NavLink className="nav-link" href="#!clinics">Clinics</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#!reporting">Reporting</a>
+                                    <NavLink className="nav-link" href="#!reporting">Reporting</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#!/ordersInfo">Ordering</a>
+                                    <NavLink className="nav-link" href="#!/ordersInfo">Ordering</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#!/shipping">Shipping</a>
+                                    <NavLink className="nav-link" href="#!/shipping">Shipping</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#!/setup">Setup</a>
+                                    <NavLink className="nav-link" href="#!/setup">Setup</NavLink>
                                 </li>
                             </>}
                             {
