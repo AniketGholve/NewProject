@@ -1,18 +1,21 @@
 nav{
-    background-color: #3b953b;
+    background-color: #459C98;
 }
 .navbar-brand{
-    color: white;
+    color: white !important;
     border: 3px solid transparent ;
+    cursor: default;
 }
 .nav-link{
-    color: white;
+    color: white !important;
     margin: 0px 3px;
     border-radius:10px ;
 }
 .nav-link:hover{
-    border-bottom: 3px solid black;
+    color: #FFFFFF !important;
+    border-bottom: 3px solid #FFFFFF;
 }
-a.active_class{
-    color: aqua;
+.active_class{
+    color: #000000 !important;
+    border-bottom: 3px solid black;
 }
