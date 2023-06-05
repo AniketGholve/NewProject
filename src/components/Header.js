@@ -14,7 +14,7 @@ function Header() {
         <>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <a className="navbar-brand">Inventory Management System</a>
+                    <NavLink className="navbar-brand">Inventory Management System</NavLink>
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             {
