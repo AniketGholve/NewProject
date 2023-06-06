@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Clp = () => {
+const CLP = () => {
   return (
     <div>
         <h1>CLP Home</h1>    
@@ -8,4 +8,4 @@ const Clp = () => {
   )
 }
 
-export default Clp
+export default CLP

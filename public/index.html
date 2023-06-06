@@ -27,19 +27,21 @@
       console.log(keycloak)
       if (keycloak.hasRealmRole("CLP")) {
         sessionStorage.setItem("userRole", "CLP")
-        location.href = "#!clp_users";
+        if(sessionStorage.getItem("activeTab")==null)
+        sessionStorage.setItem("activeTab", "home");
       }
       else if (keycloak.hasRealmRole("MLP")) {
         sessionStorage.setItem("userRole", "MLP")
-        location.href = "#!mlp_users";
       }
       else if (keycloak.hasRealmRole("ALP")) {
         sessionStorage.setItem("userRole", "ALP")
-        location.href = "#!alp_users";
+        if(sessionStorage.getItem("activeTab")==null)
+        sessionStorage.setItem("activeTab", "clinic");
       }
       else if (keycloak.hasRealmRole("ELP")) {
         sessionStorage.setItem("userRole", "ELP")
-        location.href = "#!elp_users";
+        if(sessionStorage.getItem("activeTab")==null)
+        sessionStorage.setItem("activeTab", "successOrder");
       }
       sessionStorage.setItem("token", keycloak.token)
       sessionStorage.setItem("username", keycloak.idTokenParsed.preferred_username)

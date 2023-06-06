@@ -1,21 +1,63 @@
-nav{
+nav {
     background-color: #459C98;
 }
-.navbar-brand{
+
+.navbar-brand {
     color: white !important;
-    border: 3px solid transparent ;
+    border: 3px solid transparent;
     cursor: default;
 }
-.nav-link{
+
+.nav-link {
     color: white !important;
     margin: 0px 3px;
-    border-radius:10px ;
+    border-radius: 10px;
 }
-.nav-link:hover{
-    color: #FFFFFF !important;
-    border-bottom: 3px solid #FFFFFF;
+
+.nav-link:hover {
+    color: #000000 !important;
 }
-.active_class{
+
+.active_class {
     color: #000000 !important;
     border-bottom: 3px solid black;
+}
+
+/* CLP */
+.clpHomeSection {
+    background-color: rgb(234, 183, 106);
+}
+
+.dispense_section {
+    display: flex;
+    font-size: 25px;
+    padding-left: 150px;
+    padding-right: 200px;
+}
+
+.dispense_d {
+    background-color: rgba(245, 245, 245, 0.833);
+}
+
+.inventory_d {
+    background-color: rgba(245, 245, 245, 0.833);
+}
+
+.dispense_section a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.inventory_section {
+    display: flex;
+    font-size: 25px;
+    padding-left: 150px;
+    padding-right: 200px;
+}
+
+.inventory_section a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
 }
