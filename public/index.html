@@ -14,43 +14,15 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
   <script src="http://localhost:8080/js/keycloak.js"></script>
+  <script src="./script.js"></script>
 </head>
 
-<body onload="initKeycloak()">
+<body>
+  <div id="preloader">
+    <img src="/images/5.gif" alt="">
+  </div>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
 </body>
-<script>
-  function initKeycloak() {
-    var keycloak = new Keycloak("/keycloak.json");
-    keycloak.init({ onLoad: 'login-required' }).then(isAuthenticated => {
-      console.log(keycloak)
-      if (keycloak.hasRealmRole("CLP")) {
-        sessionStorage.setItem("userRole", "CLP")
-        if(sessionStorage.getItem("activeTab")==null)
-        sessionStorage.setItem("activeTab", "home");
-      }
-      else if (keycloak.hasRealmRole("MLP")) {
-        sessionStorage.setItem("userRole", "MLP")
-      }
-      else if (keycloak.hasRealmRole("ALP")) {
-        sessionStorage.setItem("userRole", "ALP")
-        if(sessionStorage.getItem("activeTab")==null)
-        sessionStorage.setItem("activeTab", "clinic");
-      }
-      else if (keycloak.hasRealmRole("ELP")) {
-        sessionStorage.setItem("userRole", "ELP")
-        if(sessionStorage.getItem("activeTab")==null)
-        sessionStorage.setItem("activeTab", "successOrder");
-      }
-      sessionStorage.setItem("token", keycloak.token)
-      sessionStorage.setItem("username", keycloak.idTokenParsed.preferred_username)
-
-
-    }).catch(function () {
-      alert('failed to initialize');
-    });
-  }
-</script>
 
 </html>

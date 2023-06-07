@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import './style.css'
-function Header({ userRole }) {
-    let [activeTab, setActiveTab] = useState(sessionStorage.getItem("activeTab"));
+function Header() {
+    let [activeTab, setActiveTab] = useState(window.localStorage.getItem("activeTab"));
+    let [userRole, setUserRole] = useState(window.localStorage.getItem("userRole"));
     const toggleActive = (tab) => {
-        sessionStorage.setItem("activeTab", tab);
-        setActiveTab(sessionStorage.getItem("activeTab"));
+        localStorage.setItem("activeTab", tab);
+        setActiveTab(window.localStorage.getItem("activeTab"));
     }
+    useEffect(() => {
+        window.addEventListener('storage', () => {
+            setUserRole(window.localStorage.getItem("userRole"))
+        })
+    }, [])
     return (
         <>
             <nav className="navbar navbar-expand-lg">
@@ -60,6 +66,20 @@ function Header({ userRole }) {
                                     </li>
                                 </>
                             }
+                            <>
+                                <div className='user-actions'>
+                                    <li className="nav-item">
+                                        <a><i class="fa-sharp fa-solid fa-circle-user icon"></i></a>
+                                    </li>
+                                </div>
+                                <div id="userDropDown" className="sub_menu">
+                                    <div>
+                                        <a className="" href="#!edit_user"><i class="fa-regular fa-id-card"></i> My Account</a>
+                                        <hr></hr>
+                                        <a className="" href="#!">Logout</a>
+                                    </div>
+                                </div>
+                            </>
                         </ul>
                     </div>
                 </div>

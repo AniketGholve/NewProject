@@ -1,17 +1,21 @@
 nav {
-    background-color: #459C98;
+    background-color: #CCF381;
+    width: 100%;
+    box-shadow: 0px 2px 30px #459C98;
 }
 
 .navbar-brand {
     color: white !important;
     border: 3px solid transparent;
     cursor: default;
+    font-weight: bold;
 }
 
 .nav-link {
     color: white !important;
     margin: 0px 3px;
     border-radius: 10px;
+    font-weight: 500;
 }
 
 .nav-link:hover {
@@ -60,4 +64,53 @@ nav {
     text-decoration: none;
     color: black;
     text-align: center;
+}
+#preloader {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
+}
+#preloader img {
+    position: relative;
+    top: 40%;
+    left: 50%;
+}
+.user-actions{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    position: absolute;
+    right: 5%;
+    top: 25%;
+}
+.icon{
+    color: black;
+    background-color: aliceblue;
+    font-size: 40px;
+    border-radius: 50%;
+}
+.sub_menu{
+    position: absolute;
+    top: 100%;
+    right: 0.5%;
+    padding: 0px 20px;
+    background-color: #ec4747;
+    text-align: center;
+}
+.sub_menu div{
+    display: flex;
+    flex-direction: column;
+}
+.sub_menu div a{
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.sub_menu div hr{
+    padding: 0%;
+    margin: 5%;
 }
