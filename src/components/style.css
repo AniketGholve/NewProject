@@ -1,30 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500&family=Chokokutai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #dff3d8;
+    color: #071005 !important;
+}
+
 nav {
-    background-color: #CCF381;
+    background-color: transparent;
     width: 100%;
-    box-shadow: 0px 2px 30px #459C98;
+}
+
+.headingFont {
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px #6bd445;
+}
+.underline{
+    text-decoration: double underline;
+}
+
+.container-fluid {
+    padding-right: calc(var(--bs-gutter-x) * .4);
 }
 
 .navbar-brand {
-    color: white !important;
     border: 3px solid transparent;
     cursor: default;
-    font-weight: bold;
+    color: black;
+    font-size: 30px;
+    color: rgb(7, 84, 0);
+    font-family: 'Tilt Prism', cursive;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px #6bd445;
 }
-
+.clinicImg{
+    width: 22em;
+    height: 20em;
+}
+.clinicCards{
+    border-radius: 5%;
+    width: 400px;
+    min-width: 400px;
+    height: 600px;
+}
 .nav-link {
-    color: white !important;
-    margin: 0px 3px;
+    margin: 0px 25px;
     border-radius: 10px;
     font-weight: 500;
 }
 
+.nav-right {
+    justify-content: flex-end;
+    flex-grow: 0;
+}
+
 .nav-link:hover {
-    color: #000000 !important;
+    color: #3cc35e !important;
 }
 
 .active_class {
-    color: #000000 !important;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #3cc35e;
 }
 
 /* CLP */
@@ -49,7 +92,6 @@ nav {
 
 .dispense_section a {
     text-decoration: none;
-    color: black;
     text-align: center;
 }
 
@@ -62,55 +104,202 @@ nav {
 
 .inventory_section a {
     text-decoration: none;
-    color: black;
     text-align: center;
 }
+
 #preloader {
     position: absolute;
     height: 100vh;
     width: 100%;
-    background-color: white;
+    background-color: #ffffff;
     z-index: 100;
 }
+
 #preloader img {
     position: relative;
     top: 40%;
     left: 50%;
 }
-.user-actions{
+
+.user-actions {
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-    position: absolute;
-    right: 5%;
-    top: 25%;
 }
-.icon{
-    color: black;
+
+.icon {
     background-color: aliceblue;
+    color: black;
     font-size: 40px;
     border-radius: 50%;
 }
-.sub_menu{
+
+.sub_menu {
     position: absolute;
     top: 100%;
     right: 0.5%;
-    padding: 0px 20px;
-    background-color: #ec4747;
+    width: 200px;
+    background-color: #6bd445;
+    box-shadow: 2px 2px 10px #6bd445;
     text-align: center;
+    border-radius: 10px;
+    display: block;
 }
-.sub_menu div{
+
+.sub_menu div {
     display: flex;
     flex-direction: column;
 }
-.sub_menu div a{
+
+.sub_menu div a {
     padding: 10px;
     text-decoration: none;
-    color: white;
+    color: #071005;
     font-weight: bold;
 }
-.sub_menu div hr{
+
+.sub_menu div a:hover {
+    background-color: #3cc35e;
+    color: #194b25 !important;
+    border-radius: 10px;
+}
+
+.sub_menu div hr {
     padding: 0%;
     margin: 5%;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: auto;
+}
+
+.userActionResponsive {
+    display: none;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.dropdown-content {
+    border-radius: 10px;
+}
+
+.dropdown-content hr {
+    margin: 0;
+}
+
+.downloadReport {
+    display: grid;
+    place-content: center;
+}
+
+.downloadXLS {
+    display: grid;
+    place-content: center;
+}
+
+.downloadPDF {
+    display: grid;
+    place-content: center;
+}
+
+.theadGreen {
+    background-color: #6bd445;
+}
+.editClinicDetails{
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    grid-template-rows: auto auto auto auto;
+}
+.editClinicDetails div{
+    display: grid;
+    place-content: center;
+    padding: 20px;
+}
+.addClinicUser{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto ;
+    grid-template-rows: auto auto auto auto;
+}
+.addClinicUser div{
+    display: grid;
+    place-content: center;
+    padding: 20px;
+}
+.clinicDetails {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+}
+
+.clinicDetails div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding:0 30px;
+}
+
+.clinicDetails div p {
+    padding: 0px 10px;
+}
+.clinicDetailsContainer{
+    border-radius: 50px;
+    height: 350px;
+    min-width: 900px;
+}
+.clinicImage{
+    box-shadow: 2px 2px 10px black;
+}
+.successAlert{
+    box-shadow: 5px 5px 150px #315126;
+}
+@media(width<992px) {
+    .navbar-nav {
+        float: right;
+        min-width: 200px;
+        text-align: center;
+        background-color: #6bd445;
+        box-shadow: 2px 2px 10px #6bd445;
+        border-radius: 10px;
+        padding: 0 0 10px 0px;
+    }
+
+    .user-actions {
+        display: none;
+    }
+
+    .userActionResponsive {
+        display: block;
+    }
+
+    .nav-link {
+        padding: 15px;
+    }
+
+    .nav-link:hover {
+        color: #FFFFFF !important;
+    }
+
+    .active_class {
+        border-bottom: 3px solid #FFFFFF;
+    }
+
+    #userDropDown {
+        display: none;
+    }
+}
+
+@media(width<400px) {
+    .navbar-brand {
+        display: none;
+    }
 }

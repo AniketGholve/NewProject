@@ -1,1 +1,1 @@
-export const USERROLE="USERROLE";
+export const ADD_CLINIC="ADD_CLINIC";

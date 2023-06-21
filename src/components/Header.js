@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom';
 import './style.css'
-function Header() {
-    let [activeTab, setActiveTab] = useState(window.localStorage.getItem("activeTab"));
-    let [userRole, setUserRole] = useState(window.localStorage.getItem("userRole"));
-    const toggleActive = (tab) => {
-        localStorage.setItem("activeTab", tab);
-        setActiveTab(window.localStorage.getItem("activeTab"));
+function Header({userRole,activeTab,setActiveTab,activeDropDown,setActiveDropDown,toggleUserAction,toggleActive}) {
+    const handleLogout = ()=>{
+        localStorage.clear()
     }
-    useEffect(() => {
-        window.addEventListener('storage', () => {
-            setUserRole(window.localStorage.getItem("userRole"))
-        })
-    }, [])
     return (
         <>
+            {activeDropDown && <div className='overlay' onClick={() => { setActiveDropDown(false) }}></div>}
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <NavLink className="navbar-brand">Inventory Management System</NavLink>
-                    <div className="collapse navbar-collapse">
+                    <NavLink className="navbar-brand">
+                        <img src='./images/883.gif' alt='IMS' />Capsule Corp's
+                    </NavLink>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse nav-right" id='navbarSupportedContent'>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             {
                                 userRole === "CLP" && <>
@@ -66,18 +64,28 @@ function Header() {
                                     </li>
                                 </>
                             }
+                            <div className='user-actions'>
+                                <li className="nav-item">
+                                    <NavLink onClick={toggleUserAction}><i className="fa-sharp fa-solid fa-circle-user icon"></i></NavLink>
+                                </li>
+                            </div>
                             <>
-                                <div className='user-actions'>
-                                    <li className="nav-item">
-                                        <a><i class="fa-sharp fa-solid fa-circle-user icon"></i></a>
-                                    </li>
-                                </div>
-                                <div id="userDropDown" className="sub_menu">
-                                    <div>
-                                        <a className="" href="#!edit_user"><i class="fa-regular fa-id-card"></i> My Account</a>
-                                        <hr></hr>
-                                        <a className="" href="#!">Logout</a>
+                                {
+                                    activeDropDown && <div id="userDropDown" className="sub_menu">
+                                        <div>
+                                            <NavLink onClick={() => toggleActive("myAccount")}><i className="fa-regular fa-id-card"></i> My Account</NavLink>
+                                            <hr></hr>
+                                            <NavLink onClick={() => {handleLogout();}} to='http://localhost:8080/realms/Inventory/protocol/openid-connect/logout'><i className="fa-solid fa-right-from-bracket"></i> Logout</NavLink>
+                                        </div>
                                     </div>
+                                }
+                                <div className="userActionResponsive">
+                                    <li className="nav-item ">
+                                        <NavLink onClick={() => toggleActive("myAccount")} className={activeTab === 'myAccount' ? 'nav-link active_class' : 'nav-link'}><i className="fa-regular fa-id-card"></i> My Account</NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink onClick={() => {handleLogout()}} className={activeTab === 'logout' ? 'nav-link active_class' : 'nav-link'} to='http://localhost:8080/realms/Inventory/protocol/openid-connect/logout'><i className="fa-solid fa-right-from-bracket"></i> Logout</NavLink>
+                                    </li>
                                 </div>
                             </>
                         </ul>
