@@ -4,7 +4,7 @@ import ViewClinicUsers from './ViewClinicUsers';
 import AddClinicUser from './AddClinicUser';
 import EditClinicUser from './EditClinicUser';
 import { connect, useDispatch } from 'react-redux';
-import { getClinicUsers } from '../../redux/action';
+import { getClinicUsers } from '../../../redux/action';
 const ViewClinic = ({ locationId, setActivePage, activePage, setSuccessAlertFlag, successFlag ,clinicUserData}) => {
   let [clinicDetails, setClinicData] = useState([]);
   let [userId, setUserId] = useState([]);
@@ -152,6 +152,7 @@ const ViewClinic = ({ locationId, setActivePage, activePage, setSuccessAlertFlag
 }
 const mapstateToProp=(state)=>{
   return{
+    ...state,
     clinicUserData:state.clinicUserData
   }
 }

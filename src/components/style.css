@@ -213,7 +213,7 @@ nav {
 }
 
 .theadGreen {
-    background-color: #6bd445;
+    background-color: #3cc35e;
 }
 .editClinicDetails{
     display: grid;
@@ -262,6 +262,69 @@ nav {
 .successAlert{
     box-shadow: 5px 5px 150px #315126;
 }
+
+.reportsHeaders{
+    display: grid;
+    grid-template-columns: repeat(20,1fr);
+    background-color: #6bd445;
+}
+.reportsHeaders select{
+    grid-column: 2/3;
+    background-color: #6bd445;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 3px solid #315126;
+}
+.reportsHeaders select:focus-visible{
+    outline:none;
+}
+.reportsHeaders select option{
+    background-color: #3cc35e;
+    font-size: 1.05em;
+}
+#reportDropdown{
+    border:none;
+    background-color: #dff3d8;
+    border-bottom:3px solid #315126;
+}
+#reportDropdown:focus-visible{
+    outline: none;
+}
+
+.modal-dialog{
+    max-width: max-content;
+}
+.orderingThead tr th{
+    background-color: #680ea3;
+}
+.disabled{
+    opacity: 0.5;
+    pointer-events: none;
+}
+.bg-juniper{
+    background-color: #9b16a2 !important;
+}
+.bg-salt{
+    background-color: #ffdbfd !important;
+}
+.inputBox{
+    border: none;
+    background-color: #dff3d8;
+    border-bottom:2px solid #3cc35e;
+}
+.inputBox:focus-visible{
+    outline: none;
+}
+::placeholder{
+   color: #071005;
+}
+.font-weight-bold{
+    font-weight: bold;
+}
+
+
+
 @media(width<992px) {
     .navbar-nav {
         float: right;

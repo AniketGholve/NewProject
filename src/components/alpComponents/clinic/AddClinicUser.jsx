@@ -1,10 +1,10 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { getClinicUsers } from '../../redux/action';
-import Alert from '../Alert';
+import { getClinicUsers } from '../../../redux/action';
+import Alert from '../../Alert';
 
-const AddClinicUser = ({ setInternalActivePage, successFlag, setSuccessAlertFlag ,locationId}) => {
-    let dispatch=useDispatch();
+const AddClinicUser = ({ setInternalActivePage, successFlag, setSuccessAlertFlag, locationId }) => {
+    let dispatch = useDispatch();
     const addClinicUser = (e) => {
         e.preventDefault();
         let data = {};
@@ -17,8 +17,8 @@ const AddClinicUser = ({ setInternalActivePage, successFlag, setSuccessAlertFlag
         data.workPhone = e.target.workPhone.value;
         data.mobilePhone = e.target.mobilePhone.value;
         data.password = e.target.password.value;
-        data.defaultLocationId=locationId;
-        data.gender=e.target.gender.value;
+        data.defaultLocationId = locationId;
+        data.gender = e.target.gender.value;
         fetch("http://localhost:7890/api/addUsers", {
             method: 'post',
             headers: {
@@ -30,7 +30,7 @@ const AddClinicUser = ({ setInternalActivePage, successFlag, setSuccessAlertFlag
             if (response.ok) {
                 // setSuccessAlertFlag(true)
                 alert("data added")
-                getClinicUsers(locationId,dispatch);
+                getClinicUsers(locationId, dispatch);
                 setInternalActivePage("viewClinic");
             }
         })
@@ -86,7 +86,7 @@ const AddClinicUser = ({ setInternalActivePage, successFlag, setSuccessAlertFlag
                         <label htmlFor="gender">Gender</label>
                         <input id="gender" type="text" name="gender" required />
                     </div>
-                    <div style={{ gridColumn:'3/4' }}>
+                    <div style={{ gridColumn: '3/4' }}>
                         <button className='btn btn-success'>Add User</button>
                     </div>
                 </form>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { getClinicUsers } from '../../redux/action';
+import { getClinicUsers } from '../../../redux/action';
 
 const EditClinicUser = ({ setInternalActivePage, userId,locationId }) => {
   let [editUserData, setEditUserData] = useState([]);

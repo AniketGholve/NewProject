@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, connect } from 'react-redux';
-import { getClinics } from '../../redux/action';
-import Alert from '../Alert';
+import { getClinics } from '../../../redux/action';
+import Alert from '../../Alert';
 
 const AddClinic = ({ setActivePage, activePage }) => {
     let [addFlag, setAddFlag] = useState(false);
@@ -43,7 +43,7 @@ const AddClinic = ({ setActivePage, activePage }) => {
     return (
         <>
             {
-                addFlag && <><Alert setActivePage={setActivePage} setAddFlag={setAddFlag} message="Clinic Added"/></>
+                addFlag && <><Alert setActivePage={setActivePage} setAddFlag={setAddFlag} message="Clinic Added" /></>
             }
             <div>
                 <button className='btn btn-success mt-5 mx-5' onClick={() => setActivePage("")}><i className="fa-solid fa-arrow-left px-1"></i> Back</button>
@@ -114,6 +114,7 @@ const AddClinic = ({ setActivePage, activePage }) => {
 }
 const mapStateToProp = (state) => {
     return {
+        ...state
     }
 }
 

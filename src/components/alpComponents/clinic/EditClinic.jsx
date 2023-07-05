@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Alert from '../Alert';
+import Alert from '../../Alert';
 
 const EditClinic = ({ successFlag, setSuccessAlertFlag, locationId, setActivePage }) => {
   let [clinicDetails, setClinicData] = useState([]);

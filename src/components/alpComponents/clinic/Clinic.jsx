@@ -4,10 +4,11 @@ import { connect, useDispatch } from 'react-redux';
 import EditClinic from './EditClinic';
 import ViewClinic from './ViewClinic';
 import AddClinic from './AddClinic';
-import { getClinics } from '../../redux/action';
-import Alert from '../Alert';
+import { getClinics } from '../../../redux/action';
+import Alert from '../../Alert';
 const mapStateToProp = (state) => {
     return {
+        ...state,
         clinicData: state.clinicData,
     }
 }
